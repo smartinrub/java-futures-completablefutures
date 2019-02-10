@@ -46,10 +46,7 @@ public class Main {
                     log.error("Something went wrong: {}", e.getMessage());
                     return 0;
                 })
-                .thenApply(confirmationNumber -> { // thenApply() is used to transform the result of a completableFuture, like Map
-                    log.info("The Confirmation number is: {}", confirmationNumber);
-                    return confirmationNumber;
-                })
+                .thenApply(Math::abs) // thenApply() is used to transform the result of a completableFuture, like Map
                 .join(); // join() is similar to get(), but it throws an unchecked exception is case the future does not complete
     }
 }
